@@ -12,6 +12,7 @@ My general instruction is not to use the existing MacOS X installer `.pkg` provi
 
 ## Install Hudson
   * As the `jenkins` user on the Mac issue the following Terminal commands:
+
     mkdir -p ~/Library/Application\ Support/Jenkins/Home
     cd ~/Library/Application\ Support/Jenkins
     curl -L http://mirrors.jenkins-ci.org/war/latest/jenkins.war -o jenkins.war
@@ -36,10 +37,12 @@ My general instruction is not to use the existing MacOS X installer `.pkg` provi
 ### Git
 #### Set up SSH (for git)
   * As the `jenkins` user run the folowing commands:
+
     cd ~
     mkdir .ssh
     chmod 700 .ssh
     ssh-keygen
+
   * **Don't** give the generated key a pass-phrase.
   
 
