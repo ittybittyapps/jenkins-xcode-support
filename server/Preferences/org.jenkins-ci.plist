@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>home</key>
+	<string>/Users/jenkins/Library/Application Support/Jenkins/Home</string>
+	<key>httpListenAddress</key>
+	<string>localhost</string>
+	<key>httpPort</key>
+	<string>8080</string>
+	<key>httpsListenAddress</key>
+	<string>192.168.1.10</string>
+	<key>httpsPort</key>
+	<string>8443</string>
+	<key>war</key>
+	<string>/Users/jenkins/Library/Application Support/Jenkins/jenkins.war</string>
+</dict>
+</plist>
