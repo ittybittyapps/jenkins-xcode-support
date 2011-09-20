@@ -15,7 +15,7 @@ TEMP_ROOT := $(BUILD_DIR)/Temp
 CACHE_ROOT := $(BUILD_DIR)/Cache
 SHARED_PRECOMPS_DIR := $(BUILD_DIR)/PrecompiledHeaders
 
-GHUNIT_CLI = 0
+GHUNIT_CLI = 
 
 BUILD_OPTS := BUILD_DIR=$(BUILD_DIR) BUILD_ROOT=$(BUILD_ROOT) OBJROOT=$(OBJROOT) SYMROOT=$(SYMROOT) DSTROOT=$(DSTROOT) CACHE_ROOT=$(CACHE_ROOT) SHARED_PRECOMPS_DIR=$(SHARED_PRECOMPS_DIR)
 
@@ -31,7 +31,7 @@ clean:
 build:
 	GHUNIT_CLI=$(GHUNIT_CLI) xcodebuild -workspace $(XCODE_WORKSPACE) -scheme $(XCODE_SCHEME) -configuration $(CONFIG) -sdk $(SDK) build $(BUILD_OPTS)
 
-build-and-run-tests: GHUNIT_CLI = 1
+build-and-run-tests: GHUNIT_CLI = YES
 build-and-run-tests: build
 
 test: unlock-keychain build-and-run-tests restore-default-keychain
