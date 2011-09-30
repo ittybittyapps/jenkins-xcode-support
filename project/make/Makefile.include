@@ -44,11 +44,12 @@ build-ipa:
 
 unlock-keychain:
 ifeq (,$(findstring simulator,$(SDK)))
-	security unlock-keychain -p "$(KEYCHAIN_PASSWORD)" "$(KEYCHAIN_PATH)"
-	security default-keychain -d user -s "$(KEYCHAIN_PATH)"
+	security unlock-keychain -p "$(KEYCHAIN_PASSWORD)" "$(KEYCHAIN_NAME).keychain"
+	security default-keychain -d user -s "$(KEYCHAIN_NAME).keychain"
 endif
 
 restore-default-keychain:
 ifeq (,$(findstring simulator,$(SDK)))
 	security default-keychain -d user -s $(KEYCHAIN_DEFAULT)
+	security lock-keychain "$(KEYCHAIN_NAME).keychain"
 endif
