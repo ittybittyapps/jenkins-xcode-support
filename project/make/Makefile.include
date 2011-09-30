@@ -37,7 +37,7 @@ build:
 test: GHUNIT_CLI = YES
 test: build 
 
-archive: build unlock-keychain build-ipa restore-default-keychain
+archive: unlock-keychain build build-ipa restore-default-keychain
 
 build-ipa:
 	$(SHARED_SCRIPT_DIR)/BuildIPA.sh build/$(CONFIG)-$(SDK)/BuildIPA.config
