@@ -6,8 +6,10 @@ if [ ! -z "$1" -a -r $1 ]; then
 	
 	xcrun -sdk $SDK PackageApplication "$AppPath" -o "$IPAPath" \
 		--sign "$CodeSignIdent" --embed "$ProvisioningProfile"
-	
-	zip -r -9 "$DSYMZipPath" "$DSYMPath" 
+
+	pushd "$DSYMDir"
+	zip -r -9 "$DSYMZipPath" "$DSYMFile" 
+	popd
 	
 else
 	echo "Usage: $0 [configfilepath]"
