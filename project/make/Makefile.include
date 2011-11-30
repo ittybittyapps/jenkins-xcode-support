@@ -51,15 +51,16 @@ build-ipa:
 unlock-keychain:
 ifeq (,$(findstring simulator,$(SDK)))
 	cp -f "$(PROVISIONING_PROFILE_SRC_FILE)" "$(PROVISIONING_PROFILE_DST_DIR)"
-	#cp -f "$(KEYCHAIN_SRC_DIR)/$(KEYCHAIN_NAME).keychain" "$(KEYCHAIN_DST_DIR)"
-	#security unlock-keychain -p "$(KEYCHAIN_PASSWORD)" "$(KEYCHAIN_NAME).keychain"
+	cp -f "$(KEYCHAIN_SRC_DIR)/$(KEYCHAIN_NAME).keychain" "$(KEYCHAIN_DST_DIR)"
+	security list-keychain -d user -s "$(KEYCHAIN_DST_DIR)/$(KEYCHAIN_NAME).keychain"
+	security unlock-keychain -p "$(KEYCHAIN_PASSWORD)" "$(KEYCHAIN_NAME).keychain"
 	#security default-keychain -d user -s "$(KEYCHAIN_NAME).keychain"
 endif
 
 restore-default-keychain:
 ifeq (,$(findstring simulator,$(SDK)))
 	#security default-keychain -d user -s $(KEYCHAIN_DEFAULT)
-	#security lock-keychain "$(KEYCHAIN_NAME).keychain"
+	security lock-keychain "$(KEYCHAIN_NAME).keychain"
 	#rm -f "$(KEYCHAIN_DST_DIR)/$(KEYCHAIN_NAME).keychain"
-	#rm -f "$(PROVISIONING_PROFILE_DST_DIR)/$(PROVISIONING_PROFILE_NAME).mobileprovision"
+	rm -f "$(PROVISIONING_PROFILE_DST_DIR)/$(PROVISIONING_PROFILE_NAME).mobileprovision"
 endif
